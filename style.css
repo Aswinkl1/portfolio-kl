@@ -1,14 +1,18 @@
 /* =========================================================
    1. VARIABLES — change colors, fonts and spacing here
+   Theme: Royal Emerald & Antique Gold
    ========================================================= */
 :root {
   /* Colors */
-  --background: #F1EDE6;   /* warm linen page */
-  --surface:    #FBFAF7;   /* the card */
-  --text:       #1C1B19;   /* almost black */
-  --muted:      #6B675F;   /* secondary text */
-  --border:     #E4DED3;   /* fine lines */
-  --accent:     #3E5C8A;   /* calm ink blue — the only accent */
+  --background: #0B1D17;                    /* deep emerald page */
+  --surface:    #10271F;                    /* the card, a shade lighter */
+  --text:       #F2EADB;                    /* warm ivory */
+  --muted:      #ADA693;                    /* soft parchment gray */
+  --border:     rgba(201, 165, 90, 0.22);   /* gold hairline */
+  --accent:     #C9A55A;                    /* antique gold — the only accent */
+  --on-accent:  #0B1D17;                    /* text placed on gold */
+  --glow:       rgba(201, 165, 90, 0.07);   /* faint light behind the card */
+  --shadow:     rgba(3, 10, 8, 0.65);       /* emerald-tinted shadow */
 
   /* Fonts */
   --font-display: "Fraunces", Georgia, serif;
@@ -41,7 +45,9 @@
 }
 
 body {
-  background: var(--background);
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 35%, var(--glow), transparent 70%),
+    var(--background);
   color: var(--text);
   font-family: var(--font-body);
   font-size: 1rem;
@@ -63,7 +69,7 @@ svg {
 
 ::selection {
   background: var(--accent);
-  color: #fff;
+  color: var(--on-accent);
 }
 
 :focus-visible {
@@ -93,8 +99,7 @@ svg {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 24px;
-  box-shadow: 0 1px 2px rgba(28, 27, 25, 0.04),
-              0 24px 48px -32px rgba(28, 27, 25, 0.18);
+  box-shadow: 0 30px 60px -30px var(--shadow);
 }
 
 
@@ -112,13 +117,13 @@ svg {
 .avatar {
   display: grid;
   place-items: center;
-  width: 44px;
-  height: 44px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
-  background: var(--text);
-  color: var(--surface);
+  border: 1px solid var(--accent);
+  color: var(--accent);
   font-family: var(--font-display);
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-style: italic;
   letter-spacing: 0.02em;
 }
@@ -140,7 +145,7 @@ svg {
   height: 7px;
   border-radius: 50%;
   background: var(--accent);
-  box-shadow: 0 0 0 3px rgba(62, 92, 138, 0.18);
+  box-shadow: 0 0 0 3px var(--border);
 }
 
 
@@ -160,7 +165,7 @@ svg {
   display: block;
   font-weight: 400;
   font-style: italic;
-  color: var(--muted);
+  color: var(--accent);
 }
 
 .lead {
@@ -193,10 +198,9 @@ svg {
   padding: 0.6rem 1rem;
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  background: var(--surface);
   font-size: 0.92rem;
   font-weight: 500;
-  transition: border-color var(--ease), transform var(--ease), color var(--ease);
+  transition: border-color var(--ease), transform var(--ease), background-color var(--ease);
 }
 
 .chip svg {
@@ -205,7 +209,8 @@ svg {
 }
 
 .chip:hover {
-  border-color: var(--text);
+  border-color: var(--accent);
+  background: var(--glow);
   transform: translateY(-2px);
 }
 
@@ -256,12 +261,12 @@ svg {
   align-items: center;
   gap: 0.55rem;
   padding: 0.8rem 1.35rem;
-  background: var(--text);
-  color: var(--surface);
+  background: var(--accent);
+  color: var(--on-accent);
   border-radius: var(--radius);
   font-size: 0.95rem;
-  font-weight: 500;
-  transition: transform var(--ease), box-shadow var(--ease);
+  font-weight: 600;
+  transition: transform var(--ease), box-shadow var(--ease), filter var(--ease);
 }
 
 .button svg {
@@ -270,7 +275,8 @@ svg {
 
 .button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px -12px rgba(28, 27, 25, 0.6);
+  filter: brightness(1.08);
+  box-shadow: 0 12px 24px -12px var(--shadow);
 }
 
 .button:hover svg {
