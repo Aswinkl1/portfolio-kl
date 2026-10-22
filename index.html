@@ -3,79 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#F4F1EA">
-  <title>Aswin KL, software engineer</title>
-  <meta name="description" content="Aswin KL writes backend services and looks after the infrastructure they run on.">
+  <meta name="theme-color" content="#F7F7F5">
+  <title>Aswin KL — Software Engineer</title>
+  <meta name="description" content="Aswin KL is a software engineer building backend systems, cloud infrastructure and DevOps pipelines.">
 
-  <!-- One typeface: Libre Caslon Text (regular, italic, bold) -->
+  <!-- Font: Bricolage Grotesque -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="sheet">
+  <div class="page">
 
-    <!-- ===== Date line, like the top of a letter ===== -->
-    <header class="dateline">
-      <p>Kochi, Kerala</p>
-      <p>22 October 2026</p>
+    <!-- ===== Top bar: name + profile links ===== -->
+    <header class="nav">
+      <a href="#" class="nav-name">Aswin KL</a>
+      <nav aria-label="Profiles">
+        <ul class="nav-links">
+          <li><a href="#" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="#">Résumé</a></li>
+        </ul>
+      </nav>
     </header>
 
-    <main>
+    <main class="main">
 
-      <!-- ===== Name & introduction ===== -->
-      <section class="intro" aria-labelledby="name">
-        <h1 id="name" class="name">Aswin KL</h1>
-        <p class="role">Software engineer</p>
-
-        <p class="about">
-          I write backend services in Go and Python, and I look after the
-          machines they run on. Most days that means Docker, Kubernetes and
-          Terraform on AWS. I like systems that are <em>boring to operate</em>
-          and easy to explain.
+      <!-- ===== Hero ===== -->
+      <section class="hero" aria-labelledby="headline">
+        <p class="status">
+          <span class="status-dot" aria-hidden="true"></span>
+          Available for new roles from November 2026
         </p>
-      </section>
 
-      <!-- ===== Details, with labels in the margin ===== -->
-      <section class="row" aria-labelledby="now-label">
-        <h2 id="now-label" class="row-label">Now</h2>
-        <p class="row-body">Open to full-time roles from November 2026.</p>
-      </section>
+        <h1 id="headline" class="headline">
+          Aswin KL.
+          <span class="headline-muted">Software engineer building backends and cloud systems that just keep running.</span>
+        </h1>
 
-      <section class="row" aria-labelledby="links-label">
-        <h2 id="links-label" class="row-label">Elsewhere</h2>
-        <ul class="row-body">
-          <li><a href="#">github.com/aswinkl</a></li>
-          <li><a href="#">linkedin.com/in/aswinkl</a></li>
-        </ul>
-      </section>
-
-      <section class="row" aria-labelledby="resume-label">
-        <h2 id="resume-label" class="row-label">Résumé</h2>
-        <p class="row-body">
-          <a href="#">aswin-kl-resume.pdf</a>
-          <span class="note">2 pages, updated October 2026</span>
-        </p>
-      </section>
-
-      <section class="row" aria-labelledby="contact-label">
-        <h2 id="contact-label" class="row-label">Write to</h2>
-        <div class="row-body contact">
-          <p>
-            <a href="mailto:aswinkl@email.com">aswinkl@email.com</a>
-            <span class="note">I usually reply within a day.</span>
-          </p>
-          <a href="mailto:aswinkl@email.com" class="button">Send an email</a>
+        <div class="actions">
+          <a href="mailto:aswinkl@email.com" class="button">Let's connect</a>
+          <a href="#" class="text-link">View résumé</a>
         </div>
+      </section>
+
+      <!-- ===== Facts row ===== -->
+      <section class="facts" aria-label="Details">
+        <dl class="facts-list">
+          <div class="fact">
+            <dt>Focus</dt>
+            <dd>Backend, cloud &amp; DevOps</dd>
+          </div>
+          <div class="fact">
+            <dt>Stack</dt>
+            <dd>Go, Python, AWS, Terraform</dd>
+          </div>
+          <div class="fact">
+            <dt>Based in</dt>
+            <dd>Kochi, India</dd>
+          </div>
+          <div class="fact">
+            <dt>Email</dt>
+            <dd><a href="mailto:aswinkl@email.com">aswinkl@email.com</a></dd>
+          </div>
+        </dl>
       </section>
 
     </main>
 
-    <!-- ===== Colophon ===== -->
+    <!-- ===== Footer ===== -->
     <footer class="footer">
-      <p>&copy; 2026 Aswin KL. Hand-written in HTML &amp; CSS, set in Libre Caslon.</p>
+      <p>&copy; 2026 Aswin KL</p>
+      <p>Built with HTML &amp; CSS.</p>
     </footer>
 
   </div>
