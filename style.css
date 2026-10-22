@@ -1,16 +1,16 @@
 /* =========================================================
    1. VARIABLES — change colors, fonts and spacing here
-   Theme: ivory card on warm sand
+   Theme: ivory card on light stone
    ========================================================= */
 :root {
   /* Colors */
-  --background: #E6D6BE;   /* warm sand page */
+  --background: #EDEDED;   /* light gray page */
   --surface:    #FBF7F0;   /* ivory card */
   --text:       #24171A;   /* warm brown-black ink */
   --muted:      #6E5F5C;   /* warm gray for secondary text */
   --border:     #E8DFD3;   /* fine lines inside the card */
   --accent:     #7E2632;   /* claret — the only accent */
-  --on-dark:    #6B5843;   /* text placed on the sand page */
+  --on-dark:    #5F5B55;   /* text placed on the stone page */
 
   /* Fonts */
   --font-display: "Bodoni Moda", "Didot", Georgia, serif;
@@ -88,8 +88,8 @@ a {
   padding: var(--card-pad);
   background: var(--surface);
   border-radius: 20px;
-  box-shadow: 0 1px 2px rgba(92, 64, 34, 0.08),
-              0 30px 60px -30px rgba(92, 64, 34, 0.35);
+  box-shadow: 0 1px 2px rgba(40, 38, 34, 0.06),
+              0 30px 60px -30px rgba(40, 38, 34, 0.28);
 }
 
 
@@ -158,28 +158,23 @@ a {
 
 
 /* =========================================================
-   6. LINKS — one segmented bar split into three
+   6. LINKS — three small separate tiles
    ========================================================= */
 .links {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
   margin-top: var(--space);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
 }
 
 .link {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 0.5rem;
-  padding: 0.95rem 1.1rem;
-  transition: background-color var(--ease), color var(--ease);
-}
-
-.link + .link {
-  border-left: 1px solid var(--border);
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color var(--ease), transform var(--ease);
 }
 
 .link-name {
@@ -189,25 +184,11 @@ a {
 .link-meta {
   font-size: var(--size-small);
   color: var(--muted);
-  transition: color var(--ease);
 }
 
 .link:hover {
-  background: rgba(0, 0, 0, 0.03);
-}
-
-.link:hover .link-name {
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.25em;
-}
-
-.link:hover .link-meta {
-  color: var(--text);
-}
-
-.link:focus-visible {
-  outline-offset: -3px;
+  border-color: var(--muted);
+  transform: translateY(-2px);
 }
 
 
@@ -309,11 +290,6 @@ a {
 
   .link {
     padding: 1rem 1.1rem;
-  }
-
-  .link + .link {
-    border-left: 0;
-    border-top: 1px solid var(--border);
   }
 
   .contact {
