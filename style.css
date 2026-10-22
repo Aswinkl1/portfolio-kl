@@ -1,0 +1,343 @@
+/* =========================================================
+   1. VARIABLES — change colors, fonts and spacing here
+   ========================================================= */
+:root {
+  /* Colors */
+  --background: #F1EDE6;   /* warm linen page */
+  --surface:    #FBFAF7;   /* the card */
+  --text:       #1C1B19;   /* almost black */
+  --muted:      #6B675F;   /* secondary text */
+  --border:     #E4DED3;   /* fine lines */
+  --accent:     #3E5C8A;   /* calm ink blue — the only accent */
+
+  /* Fonts */
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body:    "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Type sizes: clamp(smallest, fluid, largest) */
+  --size-title: clamp(2.4rem, 1.7rem + 2.6vw, 3.9rem);
+  --size-lead:  clamp(1.02rem, 0.97rem + 0.25vw, 1.15rem);
+  --size-small: 0.82rem;
+
+  /* Spacing */
+  --card-pad:  clamp(1.5rem, 1rem + 3vw, 3.5rem);
+  --space:     clamp(1.75rem, 4.5vh, 2.75rem);   /* space between groups */
+  --max-width: 42rem;
+
+  --radius: 999px;          /* pill shape for chips and button */
+  --ease: 200ms ease;
+}
+
+
+/* =========================================================
+   2. RESET & BASE
+   ========================================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+svg {
+  width: 1.05em;
+  height: 1.05em;
+  flex-shrink: 0;
+}
+
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   3. PAGE & CARD
+   ========================================================= */
+.page {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  padding: clamp(1rem, 4vh, 2.5rem) clamp(1rem, 4vw, 2rem);
+}
+
+.card {
+  width: 100%;
+  max-width: var(--max-width);
+  padding: var(--card-pad);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  box-shadow: 0 1px 2px rgba(28, 27, 25, 0.04),
+              0 24px 48px -32px rgba(28, 27, 25, 0.18);
+}
+
+
+/* =========================================================
+   4. TOP ROW — monogram + status
+   ========================================================= */
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: var(--space);
+}
+
+.avatar {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--text);
+  color: var(--surface);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: var(--size-small);
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px rgba(62, 92, 138, 0.18);
+}
+
+
+/* =========================================================
+   5. INTRODUCTION
+   ========================================================= */
+.title {
+  font-family: var(--font-display);
+  font-size: var(--size-title);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.title-role {
+  display: block;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.lead {
+  max-width: 32rem;
+  margin-top: 1.25rem;
+  font-size: var(--size-lead);
+  color: var(--muted);
+}
+
+.lead strong {
+  font-weight: 600;
+  color: var(--text);
+}
+
+
+/* =========================================================
+   6. LINKS — small outlined chips with icons
+   ========================================================= */
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: var(--space);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  font-size: 0.92rem;
+  font-weight: 500;
+  transition: border-color var(--ease), transform var(--ease), color var(--ease);
+}
+
+.chip svg {
+  color: var(--muted);
+  transition: color var(--ease);
+}
+
+.chip:hover {
+  border-color: var(--text);
+  transform: translateY(-2px);
+}
+
+.chip:hover svg {
+  color: var(--accent);
+}
+
+
+/* =========================================================
+   7. CONTACT
+   ========================================================= */
+.contact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: var(--space);
+  padding-top: var(--space);
+  border-top: 1px solid var(--border);
+}
+
+.contact-label {
+  font-size: var(--size-small);
+  font-weight: 500;
+  color: var(--muted);
+  margin-bottom: 0.15rem;
+}
+
+.email {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  overflow-wrap: anywhere;
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size var(--ease), color var(--ease);
+}
+
+.email:hover {
+  color: var(--accent);
+  background-size: 100% 1px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.8rem 1.35rem;
+  background: var(--text);
+  color: var(--surface);
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: transform var(--ease), box-shadow var(--ease);
+}
+
+.button svg {
+  transition: transform var(--ease);
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -12px rgba(28, 27, 25, 0.6);
+}
+
+.button:hover svg {
+  transform: translateX(3px);
+}
+
+
+/* =========================================================
+   8. FOOTER
+   ========================================================= */
+.footer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: var(--size-small);
+  color: var(--muted);
+}
+
+
+/* =========================================================
+   9. RESPONSIVE
+   ========================================================= */
+
+/* Short laptop screens: tighten so it still fits */
+@media (min-width: 641px) and (max-height: 780px) {
+  :root {
+    --card-pad: 2rem;
+    --space: 1.5rem;
+    --size-title: clamp(2.2rem, 1.6rem + 2vw, 3.2rem);
+  }
+}
+
+/* Phones: scrolling is fine */
+@media (max-width: 640px) {
+  .page {
+    justify-content: flex-start;
+  }
+
+  .card {
+    border-radius: 20px;
+  }
+
+  .links {
+    flex-direction: column;
+  }
+
+  .chip {
+    justify-content: center;
+    padding: 0.8rem 1rem;   /* bigger tap targets */
+  }
+
+  .contact {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .button {
+    justify-content: center;
+    padding: 0.95rem 1.35rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+}
